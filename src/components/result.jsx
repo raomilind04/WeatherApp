@@ -1,7 +1,7 @@
 function Result(){
     return(
         <div>
-            result
+           Result
         </div>
     )
 }

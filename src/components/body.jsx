@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TiWeatherCloudy } from "react-icons/ti";
 import axios from "axios";
+import {toast} from "react-toastify"; 
+
 
 function Body() {
   const [text, setText] = useState("");
@@ -12,22 +14,11 @@ function Body() {
   };
   const handleClick = (e) => {
     if (text === "") {
-      alert("Enter a valid city name");
-    } else {
-      getWeather(text);
-      setText("");
+      toast.error("Please Enter a City Name"); 
     }
   };
 
-  const getWeather = async (text) => {
-    const city = text.toLowerCase();
-    const apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`
-    const response = await axios.get(
-      apiUrl
-    );
-    const data = await response.data;
-    console.log(data);
-  };
+ 
 
   return (
     <div className="flex flex-col">
@@ -55,9 +46,9 @@ function Body() {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>

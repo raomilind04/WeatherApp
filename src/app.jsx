@@ -5,6 +5,7 @@ import Body from "./components/body";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Result from "./components/result";
 
+
 function App() {
   const response = axios.create;
   return (
@@ -13,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route path="/weather" element= {<Result />} />
+          <Route path="/weather" element={<Result />} />
         </Routes>
         <Footer />
       </div>
