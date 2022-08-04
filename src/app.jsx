@@ -16,7 +16,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Body />} />
-            <Route path="/weather" element={<Result />} />
+            <Route path="/weather/:cityName" element={<Result />} />
           </Routes>
           <Footer />
         </div>

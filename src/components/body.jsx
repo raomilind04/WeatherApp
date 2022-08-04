@@ -1,20 +1,24 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TiWeatherCloudy } from "react-icons/ti";
 import axios from "axios";
 import {toast} from "react-toastify"; 
 
 
+
 function Body() {
   const [text, setText] = useState("");
-  const key = process.env.REACT_APP_API_KEY
+  const key = process.env.REACT_APP_API_KEY; 
+  const navigate= useNavigate(); 
 
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (text === "") {
       toast.error("Please Enter a City Name"); 
+    }else {
+      navigate(`/weather/${text}`)
     }
   };
 
